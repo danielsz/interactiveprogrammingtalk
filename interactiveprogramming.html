@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Interactive programming</title>
+<meta name="author" content="(Daniel Szmulewicz)"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/2.6.2/css/reveal.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/2.6.2/css/theme/moon.css" id="theme"/>
+<link rel="stylesheet" href="http://gad.tuppu.net/css/tables.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/reveal.js/2.6.2/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1>Interactive programming</h1>
+<h2>Daniel Szmulewicz</h2>
+<h2><a href="mailto:daniel.szmulewicz@gmail.com">daniel.szmulewicz@gmail.com</a></h2>
+<h2></h2>
+</section>
+
+<section>
+<section id="slide-orgheadline18">
+<h2 id="orgheadline18">Introduction</h2>
+<div class="outline-text-2" id="text-orgheadline18">
+</div></section>
+<section id="slide-orgheadline1">
+<h3 id="orgheadline1">A little quiz for starters</h3>
+<p>
+Pieter is looking at Mieke, and Mieke is looking at Jan. Pieter is married, but Jan is not. Is a married person looking at an unmarried person?
+</p>
+</section>
+<section>
+<ul>
+<li>A. Yes</li>
+<li>B. No</li>
+<li>C. There is not enough information to derive the correct answer.</li>
+
+</ul>
+</section>
+<section id="slide-orgheadline2">
+<h3 id="orgheadline2">Evolution</h3>
+<p>
+The human brain is wired to accept the first seemingly fit answer that comes to mind when considering a problem.
+It makes sense from an evolutionary point of view: heuristics speed up the process of finding a solution. Speed is important for survival.
+</p>
+</section>
+<section id="slide-orgheadline3">
+<h3 id="orgheadline3">Reasoning and Logic</h3>
+<blockquote nil>
+<p>
+Psychologists concur with philosophers in the irrelevance of logic to everyday reasoning. Decades of work on Wason’s selection task seem to confirm this. — Pascal Engels
+</p>
+</blockquote>
+</section>
+<section id="slide-orgheadline4">
+<h3 id="orgheadline4">Thinking, Fast and Slow</h3>
+<p>
+Following Daniel Kahneman’s terminology, the brain works in two modes, system 1 and system 2. System 1 is the thinking that is fast, intuitive, and unaware of its workings. System 2 is the slow thinking able to correct system 1’s mistakes. The problem is that we often fail to recognize when we need to switch gear and slow down. 
+</p>
+</section>
+<section id="slide-orgheadline5">
+<h3 id="orgheadline5">So, programming are we?</h3>
+<p>
+Question: When we program, do we use system 1 or system 2?
+</p>
+<span class="fragment (roll-in)"><p class="fragment (roll-in)">
+We use both. When we learn or face a difficult part of the program, we use system 2, but most of the time we’ll try to maximize system 1 and proceed fast to use what we’ve learnt, what we already know.
+</p></span>
+</section>
+<section id="slide-orgheadline6">
+<h3 id="orgheadline6">Acceptance</h3>
+<blockquote nil>
+<p>
+Civilization advances by extending the number of important operations which we can perform without thinking about them — Alfred North Whitehead
+</p>
+</blockquote>
+</section>
+<section id="slide-orgheadline7">
+<h3 id="orgheadline7">Epistemological pluralism</h3>
+<p>
+We need to be humble in the light of our shortcomings, and embrace any strategy that helps us exercice our capabilities. 
+</p>
+</section>
+<section>
+<p>
+Constructionism. Seminal paper: <a href="http://www.papert.org/articles/EpistemologicalPluralism.html">Epistemological Pluralism and the Revaluation of the Concrete</a>, by Seymour Papert and Sherry Turkle
+</p>
+</section>
+<section id="slide-orgheadline9">
+<h3 id="orgheadline9">Methodology</h3>
+<p>
+Desirable properties such as:
+</p>
+<ul>
+<li>testability</li>
+<li>reactivity</li>
+<li>incrementality</li>
+<li>immediacy</li>
+
+</ul>
+</section>
+<section id="slide-orgheadline8">
+<h4 id="orgheadline8">Why interactive programming?</h4>
+<ul>
+<li>bottom-up programming</li>
+<li>domain exploration</li>
+<li>bricolage and prototyping</li>
+<li>Bret Victor</li>
+<li>ideal fit for innovation, learning and teaching</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline11">
+<h3 id="orgheadline11">A definition</h3>
+<p>
+Interactive programming is the procedure of writing parts of a program while it is already active.
+</p>
+
+</section>
+<section>
+
+<p>
+From within the environment provided by the REPL, you can define and redefine program elements such as variables, functions, classes, and methods; evaluate any Lisp expression; load files containing Lisp source code or compiled code; compile whole files or individual functions; enter the debugger; step through code; and inspect the state of individual Lisp objects.
+</p>
+
+</section>
+<section id="slide-orgheadline10">
+<h4 id="orgheadline10">How do you build a story for interactive programming?</h4>
+<ul>
+<li>What properties must a programming language have to build a good story for interactive programming?</li>
+
+</ul>
+
+<p>
+Consult a paper (from 1978): <a href="http://www.ida.liu.se/ext/caisor/archive/1978/001/caisor-1978-001.pdf">Programming in an Interactive Environment: the ``Lisp'' Experience</a> by Erik Sandewall
+</p>
+</section>
+<section>
+
+<ul>
+<li>Bootstrapping</li>
+<li>Incrementality</li>
+<li>Procedure orientation</li>
+<li>Internal representation of programs</li>
+<li>Full checking capability</li>
+<li>Declaration-free kernel</li>
+<li>Data structures and database</li>
+<li>Defined I/O for data structure</li>
+<li>Handles and interactive control</li>
+
+</ul>
+
+</section>
+<section>
+
+<p>
+The kernel of the programming system must contain the following programs:
+</p>
+
+<ul>
+<li>a parser</li>
+<li>a program-printer</li>
+<li>an interpreter and/or</li>
+<li>a compiler</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline12">
+<h3 id="orgheadline12">The REPL</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">(loop (print (eval (read))))
+</pre>
+</div>
+</section>
+<section id="slide-orgheadline15">
+<h3 id="orgheadline15">Functionality of a Lisp REPL</h3>
+<ul>
+<li class="fragment roll-in">History of inputs and outputs.</li>
+<li class="fragment roll-in">Variables for last result, last error (*1, *e).</li>
+<li class="fragment roll-in">Help and documentation for commands. (<code>doc</code>, <code>source</code> in clojure.repl namespace)</li>
+<li class="fragment roll-in">Variables to control the reader. (<code>*data-readers*</code>, <code>*default-data-reader-fn*</code>)</li>
+<li class="fragment roll-in">Variables to control the printer. (<code>*print-length*</code>, <code>*print-level*</code>)</li>
+
+</ul>
+</section>
+<section id="slide-orgheadline13">
+<h4 id="orgheadline13">How is a Lisp REPL different from any other REPL?</h4>
+<ul>
+<li>SO: <a href="http://stackoverflow.com/questions/5671214/is-lisp-the-only-language-with-repl">Is Lisp the only language with REPL?</a></li>
+<li>Clearly not: <a href="http://repl.it/">http://repl.it/</a></li>
+<li>Yet, Lisp’s story for interactive programming is unparalleled.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline14">
+<h4 id="orgheadline14">A REPL is not enough</h4>
+<blockquote nil>
+<p>
+But for the true Lisp programming experience, you need an environment, such as SLIME, that lets you interact with Lisp both via the REPL and while editing source files. — <b>Peter Seibel</b>, Practical Common Lisp
+</p>
+</blockquote>
+</section>
+<section>
+<blockquote nil>
+<p>
+For instance, you don't want to have to cut and paste a function definition from a source file to the REPL or have to load a whole file just because you changed one function; your Lisp environment should let us evaluate or compile both individual expressions and whole files directly from your editor. — <b>Peter Seibel</b>, Practical Common Lisp
+</p>
+</blockquote>
+</section>
+<section id="slide-orgheadline17">
+<h3 id="orgheadline17">The environment</h3>
+<div class="outline-text-3" id="text-orgheadline17">
+</div></section>
+<section id="slide-orgheadline16">
+<h4 id="orgheadline16">Types of environments</h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Lisp</th>
+<th scope="col" class="org-left">Non-Lisp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">SLIME  (CL)</td>
+<td class="org-left">COLT (Actionscript)</td>
+</tr>
+
+<tr>
+<td class="org-left">Cider (Clojure</td>
+<td class="org-left">SuperCollider (C++)</td>
+</tr>
+
+<tr>
+<td class="org-left">Emacs (Lisp)</td>
+<td class="org-left">Squeak (Smalltalk)</td>
+</tr>
+
+<tr>
+<td class="org-left">Geiser (Scheme)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Genera (Lisp Machine)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline32">
+<h2 id="orgheadline32">Clojure</h2>
+<p>
+Henceforth, the environment will be known as Cider.
+</p>
+</section>
+<section id="slide-orgheadline19">
+<h4 id="orgheadline19">Restarting the runtime</h4>
+<p>
+You don’t want to do that. 
+</p>
+</section>
+<section>
+<p>
+Clojure needs to bootstrap itself inside the JVM each and every time.
+</p>
+</section>
+<section id="slide-orgheadline20">
+<h4 id="orgheadline20">Restarting the application</h4>
+<p>
+Ah. Let’s see.
+</p>
+</section>
+<section id="slide-orgheadline21">
+<h4 id="orgheadline21">Reloading the namespace</h4>
+<p>
+Cojure built-in facilities: <code>(require ... :reload)</code> and <code>(require ... :reload-all)</code> 
+</p>
+</section>
+<section>
+<p>
+Some problems.
+</p>
+<ul>
+<li class="fragment roll-in">If you modify two namespaces which depend on each other, you must remember to reload them in the correct order to avoid compilation errors.</li>
+<li class="fragment roll-in">If you remove definitions from a source file and then reload it, those definitions are still available in memory. If other code depends on those definitions, it will continue to work but will break the next time you restart the JVM.</li>
+<li class="fragment roll-in">If the reloaded namespace contains defmulti, you must also reload all of the associated defmethod expressions.</li>
+<li class="fragment roll-in">If the reloaded namespace contains defprotocol, you must also reload any records or types implementing that protocol and replace any existing instances of those records/types with new instances.</li>
+<li class="fragment roll-in">If the reloaded namespace contains macros, you must also reload any namespaces which use those macros.</li>
+<li class="fragment roll-in">If the running program contains functions which close over values in the reloaded namespace, those closed-over values are not updated. (This is common in web applications which construct the "handler stack" as a composition of functions.)</li>
+
+</ul>
+</section>
+<section id="slide-orgheadline22">
+<h4 id="orgheadline22">tools.namespace</h4>
+<p>
+Solved by tools.namespace single API call <code>refresh</code>.
+</p>
+</section>
+<section>
+<p>
+The <code>refresh</code> function will scan all the directories on the classpath for Clojure source files, read their ns declarations, build a graph of their dependencies, and load them in dependency order. (You can change the directories it scans with set-refresh-dirs.)
+</p>
+</section>
+<section>
+<p>
+But first, it will unload (remove) the namespaces that changed to clear out any old definitions.
+</p>
+</section>
+<section>
+<div class="org-src-container">
+
+<pre  class="src src-clojure">user=&gt; <span style="color: #2aa198;">(</span>require '<span style="color: #b58900;">[</span><span style="color: #b58900;">clojure.tools.namespace.repl</span> <span style="color: #268bd2; font-weight: bold;">:refer</span> <span style="color: #268bd2;">[</span>refresh<span style="color: #268bd2;">]</span><span style="color: #b58900;">]</span><span style="color: #2aa198;">)</span>
+user=&gt; <span style="color: #2aa198;">(</span>refresh<span style="color: #2aa198;">)</span>
+user=&gt; <span style="color: #2aa198;">(</span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">my-app</span> <span style="color: #b58900;">(</span>start-my-app<span style="color: #b58900;">)</span><span style="color: #2aa198;">)</span>
+</pre>
+</div>
+</section>
+<section>
+<div class="org-src-container">
+
+<pre  class="src src-clojure">user=&gt; <span style="color: #2aa198;">(</span>stop-my-app my-app<span style="color: #2aa198;">)</span>
+user=&gt; <span style="color: #2aa198;">(</span>refresh<span style="color: #2aa198;">)</span>
+user=&gt; <span style="color: #2aa198;">(</span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">my-app</span> <span style="color: #b58900;">(</span>start-my-app<span style="color: #b58900;">)</span><span style="color: #2aa198;">)</span>
+</pre>
+</div>
+</section>
+<section id="slide-orgheadline30">
+<h3 id="orgheadline30">So, is that it?</h3>
+<ul>
+<li class="fragment roll-in">No global state. <code>refresh</code> will destroy Vars when it reloads the namespace (even <code>defonce</code>)</li>
+<li class="fragment roll-in">Acquiring and releasing resources (sockets, files, database connections)</li>
+
+</ul>
+</section>
+<section id="slide-orgheadline23">
+<h4 id="orgheadline23">The Reloaded pattern</h4>
+<p>
+<code>tools.namespace</code> + Lifecycle protocol (Stuart Sierra)
+<a href="http://thinkrelevance.com/blog/2013/06/04/clojure-workflow-reloaded">http://thinkrelevance.com/blog/2013/06/04/clojure-workflow-reloaded</a>
+</p>
+</section>
+<section id="slide-orgheadline24">
+<h4 id="orgheadline24">component</h4>
+<p>
+<code>component</code> is a tiny Clojure framework for managing the lifecycle of software components which have runtime state. 
+</p>
+</section>
+<section id="slide-orgheadline25">
+<h4 id="orgheadline25">system</h4>
+<p>
+A set of readymade components. The usual suspects.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Jetty</td>
+<td class="org-left">Datomic</td>
+</tr>
+
+<tr>
+<td class="org-left">HTTP kit</td>
+<td class="org-left">H2</td>
+</tr>
+
+<tr>
+<td class="org-left">Aleph</td>
+<td class="org-left">Monger</td>
+</tr>
+
+<tr>
+<td class="org-left">Sente</td>
+<td class="org-left">nREPL</td>
+</tr>
+
+<tr>
+<td class="org-left">Neo4j</td>
+<td class="org-left">Langohr</td>
+</tr>
+
+<tr>
+<td class="org-left">ElasticSearch</td>
+<td class="org-left">PostgreSQL</td>
+</tr>
+
+<tr>
+<td class="org-left">Immutant</td>
+<td class="org-left">Etsy</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="slide-orgheadline26">
+<h4 id="orgheadline26">Leiningen</h4>
+<p>
+JVM instances proliferation. Examples: the REPL, the <code>cljs</code> build, the hot-reloading process (figwheel), preprocessors, watchers&#x2026;.
+</p>
+
+<p>
+In shell a:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ lein repl :headless
+</pre>
+</div>
+<p>
+In shell b:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ lein trampoline cljsbuild repl-listen
+</pre>
+</div>
+<p>
+Or:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ lein figwheel
+</pre>
+</div>
+</section>
+<section id="slide-orgheadline27">
+<h4 id="orgheadline27">Boot</h4>
+<p>
+Single JVM instance.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #2aa198;">(</span><span style="color: #859900; font-weight: bold;">deftask</span> <span style="color: #268bd2;">dev</span>
+  <span style="color: #2aa198;">"Run a restartable system in the Repl"</span>
+  <span style="color: #b58900;">[]</span>
+  <span style="color: #b58900;">(</span>comp
+   <span style="color: #268bd2;">(</span>watch <span style="color: #268bd2; font-weight: bold;">:verbose</span> <span style="color: #268bd2; font-weight: bold;">true</span><span style="color: #268bd2;">)</span>  
+   <span style="color: #268bd2;">(</span>reload<span style="color: #268bd2;">)</span> <span style="color: #586e75;">; figwheel</span>
+   <span style="color: #268bd2;">(</span>cljs <span style="color: #268bd2; font-weight: bold;">:source-map</span> <span style="color: #268bd2; font-weight: bold;">true</span><span style="color: #268bd2;">)</span> <span style="color: #586e75;">; cljsbuild</span>
+   <span style="color: #268bd2;">(</span>repl <span style="color: #268bd2; font-weight: bold;">:server</span> <span style="color: #268bd2; font-weight: bold;">true</span><span style="color: #268bd2;">)</span><span style="color: #b58900;">)</span><span style="color: #2aa198;">)</span> <span style="color: #586e75;">; REPL</span>
+</pre>
+</div>
+</section>
+<section id="slide-orgheadline28">
+<h4 id="orgheadline28">Anatomy of a system</h4>
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #2aa198;">(</span><span style="color: #859900; font-weight: bold;">defsystem</span> <span style="color: #268bd2;">dev-system</span>
+  <span style="color: #b58900;">[</span><span style="color: #268bd2; font-weight: bold;">:db</span> <span style="color: #268bd2;">(</span>new-h2-database DEFAULT-MEM-SPEC<span style="color: #268bd2;">)</span>
+   <span style="color: #268bd2; font-weight: bold;">:web</span> <span style="color: #268bd2;">(</span>new-web-server <span style="color: #6c71c4;">(</span><span style="color: #b58900;">Integer.</span> <span style="color: #859900;">(</span>env <span style="color: #268bd2; font-weight: bold;">:http-port</span><span style="color: #859900;">)</span><span style="color: #6c71c4;">)</span> app<span style="color: #268bd2;">)</span><span style="color: #b58900;">]</span><span style="color: #2aa198;">)</span>
+</pre>
+</div>
+</section>
+<section id="slide-orgheadline29">
+<h4 id="orgheadline29">Boot-system</h4>
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #2aa198;">(</span><span style="color: #859900; font-weight: bold;">deftask</span> <span style="color: #268bd2;">dev</span>
+  <span style="color: #2aa198;">"Run a restartable system in the Repl"</span>
+  <span style="color: #b58900;">[]</span>
+  <span style="color: #b58900;">(</span>comp
+   <span style="color: #268bd2;">(</span>environ <span style="color: #268bd2; font-weight: bold;">:env</span> <span style="color: #6c71c4;">{</span><span style="color: #268bd2; font-weight: bold;">:http-port</span> <span style="color: #2aa198;">"3025"</span>
+                  <span style="color: #268bd2; font-weight: bold;">:imdb-key</span> <span style="color: #2aa198;">"xxxxx-xxxx-xxxxx-xxxxx"</span><span style="color: #6c71c4;">}</span><span style="color: #268bd2;">)</span>
+   <span style="color: #268bd2;">(</span>watch <span style="color: #268bd2; font-weight: bold;">:verbose</span> <span style="color: #268bd2; font-weight: bold;">true</span><span style="color: #268bd2;">)</span>
+   <span style="color: #268bd2;">(</span>system <span style="color: #268bd2; font-weight: bold;">:sys</span> #'dev-system <span style="color: #268bd2; font-weight: bold;">:auto-start</span> <span style="color: #268bd2; font-weight: bold;">true</span> <span style="color: #268bd2; font-weight: bold;">:hot-reload</span> <span style="color: #268bd2; font-weight: bold;">true</span> <span style="color: #268bd2; font-weight: bold;">:files</span> <span style="color: #6c71c4;">[</span><span style="color: #2aa198;">"handler.clj"</span><span style="color: #6c71c4;">]</span><span style="color: #268bd2;">)</span>
+   <span style="color: #268bd2;">(</span>reload<span style="color: #268bd2;">)</span> <span style="color: #586e75;">; equivalent to figwheel</span>
+   <span style="color: #268bd2;">(</span>cljs <span style="color: #268bd2; font-weight: bold;">:source-map</span> <span style="color: #268bd2; font-weight: bold;">true</span><span style="color: #268bd2;">)</span> <span style="color: #586e75;">; equivalent to cljsbuild</span>
+   <span style="color: #268bd2;">(</span>repl <span style="color: #268bd2; font-weight: bold;">:server</span> <span style="color: #268bd2; font-weight: bold;">true</span><span style="color: #268bd2;">)</span><span style="color: #b58900;">)</span><span style="color: #2aa198;">)</span>
+</pre>
+</div>
+</section>
+<section>
+<p>
+<a href="https://github.com/danielsz/system#boot-system">https://github.com/danielsz/system#boot-system</a>
+</p>
+</section>
+<section id="slide-orgheadline31">
+<h3 id="orgheadline31">CQFD</h3>
+<p>
+Your application updates itself automatically when editing your source code.
+</p>
+<ul>
+<li><code>(require ... :reload)</code></li>
+<li><code>(refresh}</code> (via <code>(reloaded.repl/reset)</code>)</li>
+
+</ul>
+<aside class="notes">
+<ul class="org-ul">
+<li>(Levels of REPLs.)</li>
+<li>(Restarts (restores known program states) and error handling) In case of an error one gets just another REPL, with added debug commands, in the context of the error.</li>
+</ul>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline38">
+<h2 id="orgheadline38">Reference</h2>
+<div class="outline-text-2" id="text-orgheadline38">
+</div></section>
+<section id="slide-orgheadline33">
+<h3 id="orgheadline33">A history of interactive programming</h3>
+
+<div class="figure">
+<p><img src="http://ecx.images-amazon.com/images/I/51qjJtCFxiL.jpg" alt="51qjJtCFxiL.jpg" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgheadline34">
+<h3 id="orgheadline34">GUIs and interactive environments</h3>
+
+<div class="figure">
+<p><img src="http://upload.wikimedia.org/wikipedia/en/d/d2/Symbolics-document-examiner.png" alt="Symbolics-document-examiner.png" />
+</p>
+</div>
+</section>
+<section>
+<p>
+Garnet - a graphical toolkit for Lisp
+</p>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/wc8A0woo0X4" frameborder="0" allowfullscreen></iframe>
+</section>
+<section id="slide-orgheadline35">
+<h3 id="orgheadline35">Live coding</h3>
+<p>
+Live coding performance in Impromptu by Andrew Sorensen.
+</p>
+
+<iframe width="420" height="315" src="https://www.youtube.com/embed/b-8Cmd6k4_M" frameborder="0" allowfullscreen></iframe>
+</section>
+<section id="slide-orgheadline36">
+<h3 id="orgheadline36">A REPL Everywhere</h3>
+<p>
+Full Clojure programming environment in Microsoft Excel
+<a href="https://github.com/whamtet/Excel-REPL">https://github.com/whamtet/Excel-REPL</a>
+</p>
+</section>
+<section id="slide-orgheadline37">
+<h3 id="orgheadline37">The ultimate interactive session</h3>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/_B_4vhsmRRI" frameborder="0" allowfullscreen></iframe>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/reveal.js/2.6.2/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/reveal.js/2.6.2/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: true,
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+});
+</script>
+</body>
+</html>
