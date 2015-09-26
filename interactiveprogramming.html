@@ -35,56 +35,54 @@
 <div class="outline-text-2" id="text-orgheadline18">
 </div></section>
 <section id="slide-orgheadline1">
-<h3 id="orgheadline1">A little quiz for starters</h3>
+<h3 id="orgheadline1">Philosophy</h3>
+<blockquote nil>
 <p>
-Pieter is looking at Mieke, and Mieke is looking at Jan. Pieter is married, but Jan is not. Is a married person looking at an unmarried person?
+“There is no such thing as philosophy-free science; there is only science whose philosophical baggage is taken on board without examination. — Daniel Dennett, Darwin's Dangerous Idea, 1995 
 </p>
+</blockquote>
 </section>
-<section>
+<section id="slide-orgheadline2">
+<h3 id="orgheadline2">A little quiz for starters</h3>
+<p>
+Joan is looking at Agnès, and Agnès is looking at Josep. Joan is married, but Josep is not. Is a married person looking at an unmarried person?
+</p>
 <ul>
-<li>A. Yes</li>
-<li>B. No</li>
-<li>C. There is not enough information to derive the correct answer.</li>
+<li class="fragment roll-in">A. Yes</li>
+<li class="fragment roll-in">B. No</li>
+<li class="fragment roll-in">C. There is not enough information to derive the correct answer.</li>
 
 </ul>
 </section>
-<section id="slide-orgheadline2">
-<h3 id="orgheadline2">Evolution</h3>
+<section id="slide-orgheadline3">
+<h3 id="orgheadline3">Evolution</h3>
 <p>
 The human brain is wired to accept the first seemingly fit answer that comes to mind when considering a problem.
 It makes sense from an evolutionary point of view: heuristics speed up the process of finding a solution. Speed is important for survival.
 </p>
 </section>
-<section id="slide-orgheadline3">
-<h3 id="orgheadline3">Reasoning and Logic</h3>
+<section id="slide-orgheadline4">
+<h3 id="orgheadline4">Reasoning and Logic</h3>
 <blockquote nil>
 <p>
 Psychologists concur with philosophers in the irrelevance of logic to everyday reasoning. Decades of work on Wason’s selection task seem to confirm this. — Pascal Engels
 </p>
 </blockquote>
 </section>
-<section id="slide-orgheadline4">
-<h3 id="orgheadline4">Thinking, Fast and Slow</h3>
+<section id="slide-orgheadline5">
+<h3 id="orgheadline5">Thinking, Fast and Slow</h3>
 <p>
 Following Daniel Kahneman’s terminology, the brain works in two modes, system 1 and system 2. System 1 is the thinking that is fast, intuitive, and unaware of its workings. System 2 is the slow thinking able to correct system 1’s mistakes. The problem is that we often fail to recognize when we need to switch gear and slow down. 
 </p>
 </section>
-<section id="slide-orgheadline5">
-<h3 id="orgheadline5">So, programming are we?</h3>
+<section id="slide-orgheadline6">
+<h3 id="orgheadline6">So, programming are we?</h3>
 <p>
 Question: When we program, do we use system 1 or system 2?
 </p>
-<span class="fragment (roll-in)"><p class="fragment (roll-in)">
+<p class="fragment (roll-in)">
 We use both. When we learn or face a difficult part of the program, we use system 2, but most of the time we’ll try to maximize system 1 and proceed fast to use what we’ve learnt, what we already know.
-</p></span>
-</section>
-<section id="slide-orgheadline6">
-<h3 id="orgheadline6">Acceptance</h3>
-<blockquote nil>
-<p>
-Civilization advances by extending the number of important operations which we can perform without thinking about them — Alfred North Whitehead
 </p>
-</blockquote>
 </section>
 <section id="slide-orgheadline7">
 <h3 id="orgheadline7">Epistemological pluralism</h3>
@@ -334,18 +332,18 @@ But first, it will unload (remove) the namespaces that changed to clear out any 
 <section>
 <div class="org-src-container">
 
-<pre  class="src src-clojure">user=&gt; <span style="color: #2aa198;">(</span>require '<span style="color: #b58900;">[</span><span style="color: #b58900;">clojure.tools.namespace.repl</span> <span style="color: #268bd2; font-weight: bold;">:refer</span> <span style="color: #268bd2;">[</span>refresh<span style="color: #268bd2;">]</span><span style="color: #b58900;">]</span><span style="color: #2aa198;">)</span>
-user=&gt; <span style="color: #2aa198;">(</span>refresh<span style="color: #2aa198;">)</span>
-user=&gt; <span style="color: #2aa198;">(</span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">my-app</span> <span style="color: #b58900;">(</span>start-my-app<span style="color: #b58900;">)</span><span style="color: #2aa198;">)</span>
+<pre  class="src src-clojure">user=&gt; <span style="color: #707183;">(</span>require '<span style="color: #7388D6;">[</span><span style="color: #6434A3;">clojure.tools.namespace.repl</span> <span style="color: #D0372D;">:refer</span> <span style="color: #909183;">[</span>refresh<span style="color: #909183;">]</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span>
+user=&gt; <span style="color: #707183;">(</span>refresh<span style="color: #707183;">)</span>
+user=&gt; <span style="color: #707183;">(</span><span style="color: #0000FF;">def</span> <span style="color: #BA36A5;">my-app</span> <span style="color: #7388D6;">(</span>start-my-app<span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
 </pre>
 </div>
 </section>
 <section>
 <div class="org-src-container">
 
-<pre  class="src src-clojure">user=&gt; <span style="color: #2aa198;">(</span>stop-my-app my-app<span style="color: #2aa198;">)</span>
-user=&gt; <span style="color: #2aa198;">(</span>refresh<span style="color: #2aa198;">)</span>
-user=&gt; <span style="color: #2aa198;">(</span><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">my-app</span> <span style="color: #b58900;">(</span>start-my-app<span style="color: #b58900;">)</span><span style="color: #2aa198;">)</span>
+<pre  class="src src-clojure">user=&gt; <span style="color: #707183;">(</span>stop-my-app my-app<span style="color: #707183;">)</span>
+user=&gt; <span style="color: #707183;">(</span>refresh<span style="color: #707183;">)</span>
+user=&gt; <span style="color: #707183;">(</span><span style="color: #0000FF;">def</span> <span style="color: #BA36A5;">my-app</span> <span style="color: #7388D6;">(</span>start-my-app<span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
 </pre>
 </div>
 </section>
@@ -459,14 +457,14 @@ Single JVM instance.
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-clojure"><span style="color: #2aa198;">(</span><span style="color: #859900; font-weight: bold;">deftask</span> <span style="color: #268bd2;">dev</span>
-  <span style="color: #2aa198;">"Run a restartable system in the Repl"</span>
-  <span style="color: #b58900;">[]</span>
-  <span style="color: #b58900;">(</span>comp
-   <span style="color: #268bd2;">(</span>watch <span style="color: #268bd2; font-weight: bold;">:verbose</span> <span style="color: #268bd2; font-weight: bold;">true</span><span style="color: #268bd2;">)</span>  
-   <span style="color: #268bd2;">(</span>reload<span style="color: #268bd2;">)</span> <span style="color: #586e75;">; figwheel</span>
-   <span style="color: #268bd2;">(</span>cljs <span style="color: #268bd2; font-weight: bold;">:source-map</span> <span style="color: #268bd2; font-weight: bold;">true</span><span style="color: #268bd2;">)</span> <span style="color: #586e75;">; cljsbuild</span>
-   <span style="color: #268bd2;">(</span>repl <span style="color: #268bd2; font-weight: bold;">:server</span> <span style="color: #268bd2; font-weight: bold;">true</span><span style="color: #268bd2;">)</span><span style="color: #b58900;">)</span><span style="color: #2aa198;">)</span> <span style="color: #586e75;">; REPL</span>
+<pre  class="src src-clojure"><span style="color: #707183;">(</span><span style="color: #0000FF;">deftask</span> <span style="color: #006699;">dev</span>
+  <span style="color: #008000;">"Run a restartable system in the Repl"</span>
+  <span style="color: #7388D6;">[]</span>
+  <span style="color: #7388D6;">(</span>comp
+   <span style="color: #909183;">(</span>watch <span style="color: #D0372D;">:verbose</span> <span style="color: #D0372D;">true</span><span style="color: #909183;">)</span>  
+   <span style="color: #909183;">(</span>reload<span style="color: #909183;">)</span> <span style="color: #8D8D84; font-style: italic;">; figwheel</span>
+   <span style="color: #909183;">(</span>cljs <span style="color: #D0372D;">:source-map</span> <span style="color: #D0372D;">true</span><span style="color: #909183;">)</span> <span style="color: #8D8D84; font-style: italic;">; cljsbuild</span>
+   <span style="color: #909183;">(</span>repl <span style="color: #D0372D;">:server</span> <span style="color: #D0372D;">true</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span> <span style="color: #8D8D84; font-style: italic;">; REPL</span>
 </pre>
 </div>
 </section>
@@ -474,9 +472,9 @@ Single JVM instance.
 <h4 id="orgheadline28">Anatomy of a system</h4>
 <div class="org-src-container">
 
-<pre  class="src src-clojure"><span style="color: #2aa198;">(</span><span style="color: #859900; font-weight: bold;">defsystem</span> <span style="color: #268bd2;">dev-system</span>
-  <span style="color: #b58900;">[</span><span style="color: #268bd2; font-weight: bold;">:db</span> <span style="color: #268bd2;">(</span>new-h2-database DEFAULT-MEM-SPEC<span style="color: #268bd2;">)</span>
-   <span style="color: #268bd2; font-weight: bold;">:web</span> <span style="color: #268bd2;">(</span>new-web-server <span style="color: #6c71c4;">(</span><span style="color: #b58900;">Integer.</span> <span style="color: #859900;">(</span>env <span style="color: #268bd2; font-weight: bold;">:http-port</span><span style="color: #859900;">)</span><span style="color: #6c71c4;">)</span> app<span style="color: #268bd2;">)</span><span style="color: #b58900;">]</span><span style="color: #2aa198;">)</span>
+<pre  class="src src-clojure"><span style="color: #707183;">(</span><span style="color: #0000FF;">defsystem</span> <span style="color: #006699;">dev-system</span>
+  <span style="color: #7388D6;">[</span><span style="color: #D0372D;">:db</span> <span style="color: #909183;">(</span>new-h2-database DEFAULT-MEM-SPEC<span style="color: #909183;">)</span>
+   <span style="color: #D0372D;">:web</span> <span style="color: #909183;">(</span>new-web-server <span style="color: #709870;">(</span><span style="color: #6434A3;">Integer.</span> <span style="color: #907373;">(</span>env <span style="color: #D0372D;">:http-port</span><span style="color: #907373;">)</span><span style="color: #709870;">)</span> app<span style="color: #909183;">)</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span>
 </pre>
 </div>
 </section>
@@ -484,17 +482,17 @@ Single JVM instance.
 <h4 id="orgheadline29">Boot-system</h4>
 <div class="org-src-container">
 
-<pre  class="src src-clojure"><span style="color: #2aa198;">(</span><span style="color: #859900; font-weight: bold;">deftask</span> <span style="color: #268bd2;">dev</span>
-  <span style="color: #2aa198;">"Run a restartable system in the Repl"</span>
-  <span style="color: #b58900;">[]</span>
-  <span style="color: #b58900;">(</span>comp
-   <span style="color: #268bd2;">(</span>environ <span style="color: #268bd2; font-weight: bold;">:env</span> <span style="color: #6c71c4;">{</span><span style="color: #268bd2; font-weight: bold;">:http-port</span> <span style="color: #2aa198;">"3025"</span>
-                  <span style="color: #268bd2; font-weight: bold;">:imdb-key</span> <span style="color: #2aa198;">"xxxxx-xxxx-xxxxx-xxxxx"</span><span style="color: #6c71c4;">}</span><span style="color: #268bd2;">)</span>
-   <span style="color: #268bd2;">(</span>watch <span style="color: #268bd2; font-weight: bold;">:verbose</span> <span style="color: #268bd2; font-weight: bold;">true</span><span style="color: #268bd2;">)</span>
-   <span style="color: #268bd2;">(</span>system <span style="color: #268bd2; font-weight: bold;">:sys</span> #'dev-system <span style="color: #268bd2; font-weight: bold;">:auto-start</span> <span style="color: #268bd2; font-weight: bold;">true</span> <span style="color: #268bd2; font-weight: bold;">:hot-reload</span> <span style="color: #268bd2; font-weight: bold;">true</span> <span style="color: #268bd2; font-weight: bold;">:files</span> <span style="color: #6c71c4;">[</span><span style="color: #2aa198;">"handler.clj"</span><span style="color: #6c71c4;">]</span><span style="color: #268bd2;">)</span>
-   <span style="color: #268bd2;">(</span>reload<span style="color: #268bd2;">)</span> <span style="color: #586e75;">; equivalent to figwheel</span>
-   <span style="color: #268bd2;">(</span>cljs <span style="color: #268bd2; font-weight: bold;">:source-map</span> <span style="color: #268bd2; font-weight: bold;">true</span><span style="color: #268bd2;">)</span> <span style="color: #586e75;">; equivalent to cljsbuild</span>
-   <span style="color: #268bd2;">(</span>repl <span style="color: #268bd2; font-weight: bold;">:server</span> <span style="color: #268bd2; font-weight: bold;">true</span><span style="color: #268bd2;">)</span><span style="color: #b58900;">)</span><span style="color: #2aa198;">)</span>
+<pre  class="src src-clojure"><span style="color: #707183;">(</span><span style="color: #0000FF;">deftask</span> <span style="color: #006699;">dev</span>
+  <span style="color: #008000;">"Run a restartable system in the Repl"</span>
+  <span style="color: #7388D6;">[]</span>
+  <span style="color: #7388D6;">(</span>comp
+   <span style="color: #909183;">(</span>environ <span style="color: #D0372D;">:env</span> <span style="color: #709870;">{</span><span style="color: #D0372D;">:http-port</span> <span style="color: #008000;">"3025"</span>
+                  <span style="color: #D0372D;">:imdb-key</span> <span style="color: #008000;">"xxxxx-xxxx-xxxxx-xxxxx"</span><span style="color: #709870;">}</span><span style="color: #909183;">)</span>
+   <span style="color: #909183;">(</span>watch <span style="color: #D0372D;">:verbose</span> <span style="color: #D0372D;">true</span><span style="color: #909183;">)</span>
+   <span style="color: #909183;">(</span>system <span style="color: #D0372D;">:sys</span> #'dev-system <span style="color: #D0372D;">:auto-start</span> <span style="color: #D0372D;">true</span> <span style="color: #D0372D;">:hot-reload</span> <span style="color: #D0372D;">true</span> <span style="color: #D0372D;">:files</span> <span style="color: #709870;">[</span><span style="color: #008000;">"handler.clj"</span><span style="color: #709870;">]</span><span style="color: #909183;">)</span>
+   <span style="color: #909183;">(</span>reload<span style="color: #909183;">)</span> <span style="color: #8D8D84; font-style: italic;">; equivalent to figwheel</span>
+   <span style="color: #909183;">(</span>cljs <span style="color: #D0372D;">:source-map</span> <span style="color: #D0372D;">true</span><span style="color: #909183;">)</span> <span style="color: #8D8D84; font-style: italic;">; equivalent to cljsbuild</span>
+   <span style="color: #909183;">(</span>repl <span style="color: #D0372D;">:server</span> <span style="color: #D0372D;">true</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
 </pre>
 </div>
 </section>

@@ -8,9 +8,13 @@
 #+TITLE: Interactive programming
 
 * Introduction
+** Philosophy
+#+BEGIN_QUOTE
+“There is no such thing as philosophy-free science; there is only science whose philosophical baggage is taken on board without examination. — Daniel Dennett, Darwin's Dangerous Idea, 1995 
+#+END_QUOTE
 ** A little quiz for starters
-Pieter is looking at Mieke, and Mieke is looking at Jan. Pieter is married, but Jan is not. Is a married person looking at an unmarried person?
-#+REVEAL: split
+Joan is looking at Agnès, and Agnès is looking at Josep. Joan is married, but Josep is not. Is a married person looking at an unmarried person?
+#+ATTR_REVEAL: :frag (roll-in)
 - A. Yes
 - B. No
 - C. There is not enough information to derive the correct answer.
@@ -27,10 +31,6 @@ Following Daniel Kahneman’s terminology, the brain works in two modes, system 
 Question: When we program, do we use system 1 or system 2?
 #+ATTR_REVEAL: :frag (roll-in)
 We use both. When we learn or face a difficult part of the program, we use system 2, but most of the time we’ll try to maximize system 1 and proceed fast to use what we’ve learnt, what we already know.
-** Acceptance
-#+BEGIN_QUOTE
-Civilization advances by extending the number of important operations which we can perform without thinking about them — Alfred North Whitehead
-#+END_QUOTE
 ** Epistemological pluralism
 We need to be humble in the light of our shortcomings, and embrace any strategy that helps us exercice our capabilities. 
 #+REVEAL: split
