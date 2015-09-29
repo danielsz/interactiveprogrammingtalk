@@ -41,20 +41,16 @@ Desirable properties such as:
 - reactivity
 - incrementality
 - immediacy
+** A definition
+
+Interactive programming is the procedure of writing parts of a program while it is already active.
+
 *** Why interactive programming?
 - bottom-up programming
 - domain exploration
 - bricolage and prototyping
 - Bret Victor
 - ideal fit for innovation, learning and teaching 
-
-** A definition
-
-Interactive programming is the procedure of writing parts of a program while it is already active.
-
-#+REVEAL: split
-
-From within the environment provided by the REPL, you can define and redefine program elements such as variables, functions, classes, and methods; evaluate any Lisp expression; load files containing Lisp source code or compiled code; compile whole files or individual functions; enter the debugger; step through code; and inspect the state of individual Lisp objects.
 
 *** How do you build a story for interactive programming?
 - What properties must a programming language have to build a good story for interactive programming?
@@ -106,7 +102,8 @@ But for the true Lisp programming experience, you need an environment, such as S
 #+BEGIN_QUOTE
 For instance, you don't want to have to cut and paste a function definition from a source file to the REPL or have to load a whole file just because you changed one function; your Lisp environment should let us evaluate or compile both individual expressions and whole files directly from your editor. — *Peter Seibel*, Practical Common Lisp
 #+END_QUOTE
-** The environment
+*** The environment
+From within the environment provided by the REPL, you can define and redefine program elements such as variables, functions, classes, and methods; evaluate any Lisp expression; load files containing Lisp source code or compiled code; compile whole files or individual functions; enter the debugger; step through code; and inspect the state of individual Lisp objects.
 *** Types of environments
 | Lisp                  | Non-Lisp            |
 |-----------------------+---------------------|
@@ -171,7 +168,7 @@ A set of readymade components. The usual suspects.
 | ElasticSearch | PostgreSQL |
 | Immutant      | Etsy       |
 *** Leiningen
-JVM instances proliferation. Examples: the REPL, the ~cljs~ build, the hot-reloading process (figwheel), preprocessors, watchers....
+JVM instance proliferation. Examples: the REPL, the ~cljs~ build, the hot-reloading process (figwheel), preprocessors, watchers....
 
 In shell a:
 #+BEGIN_SRC bash
@@ -213,12 +210,10 @@ Single JVM instance.
                   :imdb-key "xxxxx-xxxx-xxxxx-xxxxx"})
    (watch :verbose true)
    (system :sys #'dev-system :auto-start true :hot-reload true :files ["handler.clj"])
-   (reload) ; equivalent to figwheel
-   (cljs :source-map true) ; equivalent to cljsbuild
+   (reload) 
+   (cljs :source-map true) 
    (repl :server true)))
 #+END_SRC
-#+REVEAL: split
-https://github.com/danielsz/system#boot-system
 ** CQFD
 Your application updates itself automatically when editing your source code.
 - ~(require ... :reload)~
@@ -227,6 +222,10 @@ Your application updates itself automatically when editing your source code.
 - (Levels of REPLs.)
 - (Restarts (restores known program states) and error handling) In case of an error one gets just another REPL, with added debug commands, in the context of the error. 
 #+END_NOTES
+** On github
+- https://github.com/danielsz/system
+- https://github.com/danielsz/system-dependency-injection
+- https://github.com/danielsz/holygrail
 * Reference
 ** A history of interactive programming
 

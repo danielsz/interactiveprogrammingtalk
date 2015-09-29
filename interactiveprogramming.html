@@ -95,8 +95,8 @@ We need to be humble in the light of our shortcomings, and embrace any strategy 
 Constructionism. Seminal paper: <a href="http://www.papert.org/articles/EpistemologicalPluralism.html">Epistemological Pluralism and the Revaluation of the Concrete</a>, by Seymour Papert and Sherry Turkle
 </p>
 </section>
-<section id="slide-orgheadline9">
-<h3 id="orgheadline9">Methodology</h3>
+<section id="slide-orgheadline8">
+<h3 id="orgheadline8">Methodology</h3>
 <p>
 Desirable properties such as:
 </p>
@@ -108,8 +108,15 @@ Desirable properties such as:
 
 </ul>
 </section>
-<section id="slide-orgheadline8">
-<h4 id="orgheadline8">Why interactive programming?</h4>
+<section id="slide-orgheadline11">
+<h3 id="orgheadline11">A definition</h3>
+<p>
+Interactive programming is the procedure of writing parts of a program while it is already active.
+</p>
+
+</section>
+<section id="slide-orgheadline9">
+<h4 id="orgheadline9">Why interactive programming?</h4>
 <ul>
 <li>bottom-up programming</li>
 <li>domain exploration</li>
@@ -118,20 +125,6 @@ Desirable properties such as:
 <li>ideal fit for innovation, learning and teaching</li>
 
 </ul>
-
-</section>
-<section id="slide-orgheadline11">
-<h3 id="orgheadline11">A definition</h3>
-<p>
-Interactive programming is the procedure of writing parts of a program while it is already active.
-</p>
-
-</section>
-<section>
-
-<p>
-From within the environment provided by the REPL, you can define and redefine program elements such as variables, functions, classes, and methods; evaluate any Lisp expression; load files containing Lisp source code or compiled code; compile whole files or individual functions; enter the debugger; step through code; and inspect the state of individual Lisp objects.
-</p>
 
 </section>
 <section id="slide-orgheadline10">
@@ -184,8 +177,8 @@ The kernel of the programming system must contain the following programs:
 </pre>
 </div>
 </section>
-<section id="slide-orgheadline15">
-<h3 id="orgheadline15">Functionality of a Lisp REPL</h3>
+<section id="slide-orgheadline17">
+<h3 id="orgheadline17">Functionality of a Lisp REPL</h3>
 <ul>
 <li class="fragment roll-in">History of inputs and outputs.</li>
 <li class="fragment roll-in">Variables for last result, last error (*1, *e).</li>
@@ -220,10 +213,12 @@ For instance, you don't want to have to cut and paste a function definition from
 </p>
 </blockquote>
 </section>
-<section id="slide-orgheadline17">
-<h3 id="orgheadline17">The environment</h3>
-<div class="outline-text-3" id="text-orgheadline17">
-</div></section>
+<section id="slide-orgheadline15">
+<h4 id="orgheadline15">The environment</h4>
+<p>
+From within the environment provided by the REPL, you can define and redefine program elements such as variables, functions, classes, and methods; evaluate any Lisp expression; load files containing Lisp source code or compiled code; compile whole files or individual functions; enter the debugger; step through code; and inspect the state of individual Lisp objects.
+</p>
+</section>
 <section id="slide-orgheadline16">
 <h4 id="orgheadline16">Types of environments</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -270,8 +265,8 @@ For instance, you don't want to have to cut and paste a function definition from
 </section>
 </section>
 <section>
-<section id="slide-orgheadline32">
-<h2 id="orgheadline32">Clojure</h2>
+<section id="slide-orgheadline33">
+<h2 id="orgheadline33">Clojure</h2>
 <p>
 Henceforth, the environment will be known as Cider.
 </p>
@@ -332,7 +327,7 @@ But first, it will unload (remove) the namespaces that changed to clear out any 
 <section>
 <div class="org-src-container">
 
-<pre  class="src src-clojure">user=&gt; <span style="color: #707183;">(</span>require '<span style="color: #7388D6;">[</span><span style="color: #6434A3;">clojure.tools.namespace.repl</span> <span style="color: #D0372D;">:refer</span> <span style="color: #909183;">[</span>refresh<span style="color: #909183;">]</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span>
+<pre  class="src src-clojure">user=&gt; <span style="color: #707183;">(</span><span style="color: #006699;">require</span> '<span style="color: #7388D6;">[</span><span style="color: #6434A3;">clojure.tools.namespace.repl</span> <span style="color: #D0372D;">:refer</span> <span style="color: #909183;">[</span>refresh<span style="color: #909183;">]</span><span style="color: #7388D6;">]</span><span style="color: #707183;">)</span>
 user=&gt; <span style="color: #707183;">(</span>refresh<span style="color: #707183;">)</span>
 user=&gt; <span style="color: #707183;">(</span><span style="color: #0000FF;">def</span> <span style="color: #BA36A5;">my-app</span> <span style="color: #7388D6;">(</span>start-my-app<span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
 </pre>
@@ -422,7 +417,7 @@ A set of readymade components. The usual suspects.
 <section id="slide-orgheadline26">
 <h4 id="orgheadline26">Leiningen</h4>
 <p>
-JVM instances proliferation. Examples: the REPL, the <code>cljs</code> build, the hot-reloading process (figwheel), preprocessors, watchers&#x2026;.
+JVM instance proliferation. Examples: the REPL, the <code>cljs</code> build, the hot-reloading process (figwheel), preprocessors, watchers&#x2026;.
 </p>
 
 <p>
@@ -460,7 +455,7 @@ Single JVM instance.
 <pre  class="src src-clojure"><span style="color: #707183;">(</span><span style="color: #0000FF;">deftask</span> <span style="color: #006699;">dev</span>
   <span style="color: #008000;">"Run a restartable system in the Repl"</span>
   <span style="color: #7388D6;">[]</span>
-  <span style="color: #7388D6;">(</span>comp
+  <span style="color: #7388D6;">(</span><span style="color: #006699;">comp</span>
    <span style="color: #909183;">(</span>watch <span style="color: #D0372D;">:verbose</span> <span style="color: #D0372D;">true</span><span style="color: #909183;">)</span>  
    <span style="color: #909183;">(</span>reload<span style="color: #909183;">)</span> <span style="color: #8D8D84; font-style: italic;">; figwheel</span>
    <span style="color: #909183;">(</span>cljs <span style="color: #D0372D;">:source-map</span> <span style="color: #D0372D;">true</span><span style="color: #909183;">)</span> <span style="color: #8D8D84; font-style: italic;">; cljsbuild</span>
@@ -485,21 +480,16 @@ Single JVM instance.
 <pre  class="src src-clojure"><span style="color: #707183;">(</span><span style="color: #0000FF;">deftask</span> <span style="color: #006699;">dev</span>
   <span style="color: #008000;">"Run a restartable system in the Repl"</span>
   <span style="color: #7388D6;">[]</span>
-  <span style="color: #7388D6;">(</span>comp
+  <span style="color: #7388D6;">(</span><span style="color: #006699;">comp</span>
    <span style="color: #909183;">(</span>environ <span style="color: #D0372D;">:env</span> <span style="color: #709870;">{</span><span style="color: #D0372D;">:http-port</span> <span style="color: #008000;">"3025"</span>
                   <span style="color: #D0372D;">:imdb-key</span> <span style="color: #008000;">"xxxxx-xxxx-xxxxx-xxxxx"</span><span style="color: #709870;">}</span><span style="color: #909183;">)</span>
    <span style="color: #909183;">(</span>watch <span style="color: #D0372D;">:verbose</span> <span style="color: #D0372D;">true</span><span style="color: #909183;">)</span>
    <span style="color: #909183;">(</span>system <span style="color: #D0372D;">:sys</span> #'dev-system <span style="color: #D0372D;">:auto-start</span> <span style="color: #D0372D;">true</span> <span style="color: #D0372D;">:hot-reload</span> <span style="color: #D0372D;">true</span> <span style="color: #D0372D;">:files</span> <span style="color: #709870;">[</span><span style="color: #008000;">"handler.clj"</span><span style="color: #709870;">]</span><span style="color: #909183;">)</span>
-   <span style="color: #909183;">(</span>reload<span style="color: #909183;">)</span> <span style="color: #8D8D84; font-style: italic;">; equivalent to figwheel</span>
-   <span style="color: #909183;">(</span>cljs <span style="color: #D0372D;">:source-map</span> <span style="color: #D0372D;">true</span><span style="color: #909183;">)</span> <span style="color: #8D8D84; font-style: italic;">; equivalent to cljsbuild</span>
+   <span style="color: #909183;">(</span>reload<span style="color: #909183;">)</span> 
+   <span style="color: #909183;">(</span>cljs <span style="color: #D0372D;">:source-map</span> <span style="color: #D0372D;">true</span><span style="color: #909183;">)</span> 
    <span style="color: #909183;">(</span>repl <span style="color: #D0372D;">:server</span> <span style="color: #D0372D;">true</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
 </pre>
 </div>
-</section>
-<section>
-<p>
-<a href="https://github.com/danielsz/system#boot-system">https://github.com/danielsz/system#boot-system</a>
-</p>
 </section>
 <section id="slide-orgheadline31">
 <h3 id="orgheadline31">CQFD</h3>
@@ -519,14 +509,23 @@ Your application updates itself automatically when editing your source code.
 
 </aside>
 </section>
+<section id="slide-orgheadline32">
+<h3 id="orgheadline32">On github</h3>
+<ul>
+<li><a href="https://github.com/danielsz/system">https://github.com/danielsz/system</a></li>
+<li><a href="https://github.com/danielsz/system-dependency-injection">https://github.com/danielsz/system-dependency-injection</a></li>
+<li><a href="https://github.com/danielsz/holygrail">https://github.com/danielsz/holygrail</a></li>
+
+</ul>
+</section>
 </section>
 <section>
-<section id="slide-orgheadline38">
-<h2 id="orgheadline38">Reference</h2>
-<div class="outline-text-2" id="text-orgheadline38">
+<section id="slide-orgheadline39">
+<h2 id="orgheadline39">Reference</h2>
+<div class="outline-text-2" id="text-orgheadline39">
 </div></section>
-<section id="slide-orgheadline33">
-<h3 id="orgheadline33">A history of interactive programming</h3>
+<section id="slide-orgheadline34">
+<h3 id="orgheadline34">A history of interactive programming</h3>
 
 <div class="figure">
 <p><img src="http://ecx.images-amazon.com/images/I/51qjJtCFxiL.jpg" alt="51qjJtCFxiL.jpg" />
@@ -534,8 +533,8 @@ Your application updates itself automatically when editing your source code.
 </div>
 
 </section>
-<section id="slide-orgheadline34">
-<h3 id="orgheadline34">GUIs and interactive environments</h3>
+<section id="slide-orgheadline35">
+<h3 id="orgheadline35">GUIs and interactive environments</h3>
 
 <div class="figure">
 <p><img src="http://upload.wikimedia.org/wikipedia/en/d/d2/Symbolics-document-examiner.png" alt="Symbolics-document-examiner.png" />
@@ -548,23 +547,23 @@ Garnet - a graphical toolkit for Lisp
 </p>
 <iframe width="420" height="315" src="https://www.youtube.com/embed/wc8A0woo0X4" frameborder="0" allowfullscreen></iframe>
 </section>
-<section id="slide-orgheadline35">
-<h3 id="orgheadline35">Live coding</h3>
+<section id="slide-orgheadline36">
+<h3 id="orgheadline36">Live coding</h3>
 <p>
 Live coding performance in Impromptu by Andrew Sorensen.
 </p>
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/b-8Cmd6k4_M" frameborder="0" allowfullscreen></iframe>
 </section>
-<section id="slide-orgheadline36">
-<h3 id="orgheadline36">A REPL Everywhere</h3>
+<section id="slide-orgheadline37">
+<h3 id="orgheadline37">A REPL Everywhere</h3>
 <p>
 Full Clojure programming environment in Microsoft Excel
 <a href="https://github.com/whamtet/Excel-REPL">https://github.com/whamtet/Excel-REPL</a>
 </p>
 </section>
-<section id="slide-orgheadline37">
-<h3 id="orgheadline37">The ultimate interactive session</h3>
+<section id="slide-orgheadline38">
+<h3 id="orgheadline38">The ultimate interactive session</h3>
 <iframe width="420" height="315" src="https://www.youtube.com/embed/_B_4vhsmRRI" frameborder="0" allowfullscreen></iframe>
 </section>
 </section>
